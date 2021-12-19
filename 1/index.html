@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!--
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>  
+  -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.16.6/babel.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
+  <script type="text/babel">
+    const ChildComponent = ({ firstName, fontSize = 30}) => {
+      const lastName = "현준";
+      return (
+        <h3 style={{ fontSize: fontSize }}>
+          {firstName} {lastName}
+        </h3>
+      );
+    };
+    ChildComponent.propTypes = {
+      firstName: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+    }
+    const App = () => {
+      return (
+        <div id="app">
+          <ChildComponent firstName={"장"} fontSize={70} />
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
+</html>

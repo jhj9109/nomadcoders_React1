@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.16.6/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+
+    const H1 = ({ counter }) => (
+      <h1 onMouseEnter={() => console.log("Mouse in")}>{counter}</h1>
+    );
+    const Button = ({ counterUp }) => (
+      <button id="cnt_btn" style={{ color: "red" }} onClick={counterUp}>
+        Click Me
+      </button>
+    );
+
+    const App = () => {
+      const [num, setNum] = React.useState(0);
+      function counterUp() {
+        //setNum(num + 1);
+        setNum((prevCounter) => prevCounter + 1)
+      }
+
+      console.log(`Rerendeing ${num}`)
+      return (
+        <div id="app">
+          <H1 counter={num} />
+          <Button counterUp={counterUp} />
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, root);
+  </script>
+</html>

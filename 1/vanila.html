@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button id="cnt_button">Click Me</button>
+    <h1 id="cnt">0</h1>
+  </body>
+  <script>
+    let counter = 0;
+    const button = document.querySelector("button#cnt_button");
+    const count = document.querySelector("h1#cnt")
+    button.addEventListener("click",() => {
+      counter += 1;
+      count.textContent = counter
+    })
+  </script>
+</html>
